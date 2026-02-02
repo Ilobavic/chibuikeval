@@ -45,25 +45,34 @@ function startHearts(duration = 3000) {
 }
 
 function spawnHeart(container) {
-  const heart = document.createElement("div");
-  heart.className = "heart";
+  // Create a wrapper that will sway left/right while heart falls within it
+  const wrap = document.createElement('div');
+  wrap.className = 'heart-wrap';
 
-  // Randomize size and starting position
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+
+  // Randomize size
   const size = Math.floor(Math.random() * 28) + 16; // 16-44px
-  heart.style.width = size + "px";
-  heart.style.height = size + "px";
+  heart.style.width = size + 'px';
+  heart.style.height = size + 'px';
 
+  // Random horizontal start (using vw for viewport-relative placement)
   const left = Math.random() * 100; // vw
-  heart.style.left = left + "vw";
+  wrap.style.left = left + 'vw';
 
-  // Random animation duration and delay for variety
-  const duration = Math.random() * 3 + 3.5; // 3.5s - 6.5s
-  heart.style.animation = `fall ${duration}s linear forwards`;
+  // Random animation durations for variety
+  const fallDuration = (Math.random() * 3) + 3.5; // 3.5s - 6.5s
+  const swayDuration = (Math.random() * 1.8) + 2.8; // 2.8s - 4.6s
 
-  container.appendChild(heart);
+  heart.style.animation = `fall ${fallDuration}s linear forwards`;
+  wrap.style.animation = `sway ${swayDuration}s ease-in-out infinite`;
 
-  // Remove after animation completes
+  wrap.appendChild(heart);
+  container.appendChild(wrap);
+
+  // Remove wrapper after the fall animation completes
   setTimeout(() => {
-    heart.remove();
-  }, (duration + 0.5) * 1000);
+    wrap.remove();
+  }, (fallDuration + 0.5) * 1000);
 }
