@@ -46,24 +46,24 @@ function startHearts(duration = 3000) {
 
 function spawnHeart(container) {
   // Create a wrapper that will sway left/right while heart falls within it
-  const wrap = document.createElement('div');
-  wrap.className = 'heart-wrap';
+  const wrap = document.createElement("div");
+  wrap.className = "heart-wrap";
 
-  const heart = document.createElement('div');
-  heart.className = 'heart';
+  const heart = document.createElement("div");
+  heart.className = "heart";
 
   // Randomize size
   const size = Math.floor(Math.random() * 28) + 16; // 16-44px
-  heart.style.width = size + 'px';
-  heart.style.height = size + 'px';
+  heart.style.width = size + "px";
+  heart.style.height = size + "px";
 
   // Random horizontal start (using vw for viewport-relative placement)
   const left = Math.random() * 100; // vw
-  wrap.style.left = left + 'vw';
+  wrap.style.left = left + "vw";
 
   // Random animation durations for variety
-  const fallDuration = (Math.random() * 3) + 3.5; // 3.5s - 6.5s
-  const swayDuration = (Math.random() * 1.8) + 2.8; // 2.8s - 4.6s
+  const fallDuration = Math.random() * 3 + 3.5; // 3.5s - 6.5s
+  const swayDuration = Math.random() * 1.8 + 2.8; // 2.8s - 4.6s
 
   heart.style.animation = `fall ${fallDuration}s linear forwards`;
   wrap.style.animation = `sway ${swayDuration}s ease-in-out infinite`;
