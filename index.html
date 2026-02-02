@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Will You Be My Valentine?</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Section 1: Welcome -->
+      <div id="welcome" class="section active">
+        <h1>Hi, Love ❤️</h1>
+        <p>I wanted to create something special,<br />something that speaks straight from my heart to yours.</p>
+        <button onclick="nextSection('love')">Let me show you 💕</button>
+      </div>
+
+      <!-- Section 2: Love Message -->
+      <div id="love" class="section">
+        <h1>About You 💕</h1>
+        <p>You light up my world in ways I never expected.<br />Every moment with you feels like a beautiful dream.<br />You're not just important to me—you're everything.</p>
+        <button onclick="nextSection('question')">Continue 💝</button>
+      </div>
+
+      <!-- Section 3: The Question -->
+      <div id="question" class="section">
+        <h1>Will you be my Valentine? 💖</h1>
+        <div class="button-group">
+          <button onclick="yesClick()">Yes ❤️</button>
+          <button id="noBtn" onclick="noClick()">No 😅</button>
+        </div>
+      </div>
+
+      <!-- Section 4: Success -->
+      <div id="success" class="section">
+        <div class="success-message">💕</div>
+        <div class="success-text">You've made me the happiest 💕</div>
+        <p>My heart is overflowing with joy.<br />I can't wait to create infinite beautiful moments with you. 🌹✨</p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
