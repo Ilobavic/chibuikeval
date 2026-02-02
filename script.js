@@ -26,7 +26,7 @@ function noClick() {
 
 // Create a heart rain: spawn hearts for `duration` milliseconds
 function startHearts(duration = 3000) {
-  const container = document.getElementById('hearts');
+  const container = document.getElementById("hearts");
   if (!container) return;
 
   const spawnInterval = 120;
@@ -45,19 +45,19 @@ function startHearts(duration = 3000) {
 }
 
 function spawnHeart(container) {
-  const heart = document.createElement('div');
-  heart.className = 'heart';
+  const heart = document.createElement("div");
+  heart.className = "heart";
 
   // Randomize size and starting position
   const size = Math.floor(Math.random() * 28) + 16; // 16-44px
-  heart.style.width = size + 'px';
-  heart.style.height = size + 'px';
+  heart.style.width = size + "px";
+  heart.style.height = size + "px";
 
   const left = Math.random() * 100; // vw
-  heart.style.left = left + 'vw';
+  heart.style.left = left + "vw";
 
   // Random animation duration and delay for variety
-  const duration = (Math.random() * 3) + 3.5; // 3.5s - 6.5s
+  const duration = Math.random() * 3 + 3.5; // 3.5s - 6.5s
   heart.style.animation = `fall ${duration}s linear forwards`;
 
   container.appendChild(heart);
